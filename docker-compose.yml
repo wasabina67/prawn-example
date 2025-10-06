@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    volumes:
+      - ./output:/app/output
+    working_dir: /app
+    command: ruby generate_pdf.rb
