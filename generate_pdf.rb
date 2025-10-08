@@ -51,7 +51,7 @@ Prawn::Document.generate('output/sample.pdf') do
   move_down 20
 
   table_data = [
-    ['項目', '数量', '単価', '金額'],
+    ['項目', '数量', '単価', '税込金額'],
     ['Webサイト制作', '1式', '¥300,000', '¥300,000'],
     ['システム開発', '1式', '¥200,000', '¥200,000'],
     ['保守サポート (月額)', '1ヶ月', '¥50,000', '¥50,000']
@@ -68,7 +68,7 @@ Prawn::Document.generate('output/sample.pdf') do
   bounding_box([bounds.right - 250, cursor], width: 250) do
     text "小計: ¥550,000", size: 12, align: :right
     move_down 5
-    text "消費税 (10%): ¥50,000", size: 12, align: :right
+    text "内消費税 (10%): ¥50,000", size: 12, align: :right
     move_down 5
     stroke_horizontal_rule
     move_down 5
