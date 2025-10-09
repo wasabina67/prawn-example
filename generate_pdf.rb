@@ -4,13 +4,13 @@ require 'prawn/table'
 font_dir = '/usr/share/fonts/noto'
 noto_sans_vf = Dir.glob("#{font_dir}/**/NotoSansCJKjp-VF.ttf").first
 
-Prawn::Document.generate('output/sample.pdf') do
+Prawn::Document.generate('output/sample.pdf', compress: true, optimize_objects: true) do
   if noto_sans_vf && File.exist?(noto_sans_vf)
     font_families.update(
       'NotoSansCJKjp' => {
-        normal: noto_sans_vf,
-        bold: noto_sans_vf,
-        italic: noto_sans_vf
+        normal: { file: noto_sans_vf, subset: true },
+        bold: { file: noto_sans_vf, subset: true },
+        italic: { file: noto_sans_vf, subset: true }
       }
     )
     font 'NotoSansCJKjp'
